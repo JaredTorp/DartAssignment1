@@ -7,46 +7,44 @@ void main() {
   
   
   
-  
+  print('Testing the rolling of a single die');
   Dice die = new Dice(1);
   die.roll(); 
-  die.multi_roll(5);
+  print('Now testing the rolling of multiple dice');
+  List<Dice> diceBag = [];
+  diceBag.add(new Dice(1));
+  diceBag.add(new Dice(1));
+  diceBag.add(new Dice(1));
+  diceBag.add(new Dice(1));
+  diceBag.add(new Dice(1));
+
+  
+  for(var i = 0; i < diceBag.length; i++)
+  {
+    diceBag[i].roll();
+  }
+  
   
 }
 
 class Dice {
   var currentface;
   
-  
-  
-  
-  
-  
-  
   Dice(int number){
-    print('contructor $number');
     currentface = number;
   }
   
   
   void roll(){
     Random random = new Random();
-    int randomNumber = random.nextInt(6);
+    int randomNumber = random.nextInt(6) + 1;
     currentface = randomNumber;
     print('Roll: $currentface');
     
   }
   
-  void multi_roll(int num){
-    for (var i = 0; i < num; i++)
-    {
-    Random random = new Random();
-    int randomNumber = random.nextInt(6);
-    currentface = randomNumber;
-    print('Roll: $currentface');
-    }
-    
-  }
+  
+  
   
   
 }
